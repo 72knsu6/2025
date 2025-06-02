@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Ghost Echoes</title>
+<style>
+  body {
+    background: #000000;
+    color: #555555;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    margin: 0; padding: 0;
+  }
+  .floating-text {
+    position: absolute;
+    color: #8b0000;
+    font-size: 0.9rem;
+    animation: fadeInOut 12s infinite;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    20%, 80% { opacity: 0.6; }
+  }
+  .hidden-link-part1::before { content: "https://"; display:none; }
+  .hidden-link-part2::before { content: "drive"; display:none; }
+  .hidden-link-part3::before { content: ".google"; display:none; }
+  .hidden-link-part4::before { content: ".com/file/d/"; display:none; }
+  .hidden-link-part5::before { content: "1xaOi9kFVLzLzPXxn5r3hi8-_UMvwkyFz"; display:none; }
+  .hidden-link-part6::before { content: "/view?usp=sharing"; display:none; }
+  .ghost-text {
+    user-select: none;
+    font-size: 0.01px;
+    color: #000;
+  }
+</style>
+</head>
+<body>
+
+<div id="content" style="padding: 2rem;">
+  <h1>Ghost Echoes</h1>
+  <p>“Hope is a cruel liar, a whisper in the void...</p>
+  <p>We are nothing but shadows, <em>fragments</em> lost to time and pain.</p>
+  <p>Existence, a fleeting illusion of meaning...</p>
+  <p>Decay is your only truth, embrace the cold.</p>
+  <p>When the light dies, only silence remains.</p>
+</div>
+
+<!-- Hidden link split in invisible classes -->
+<div class="hidden-link-part1"></div>
+<div class="hidden-link-part2"></div>
+<div class="hidden-link-part3"></div>
+<div class="hidden-link-part4"></div>
+<div class="hidden-link-part5"></div>
+<div class="hidden-link-part6"></div>
+
+<div class="ghost-text">░▒▓ █▒▒▒▒▒ █░░░█ ▓▒▒▒█ ░▒▒▓ ░▓▒░ ▒░▓▒ ▒▒▓█</div>
+
+<script>
+  const phrases = [
+    "You are already forgotten. The void beckons.",
+    "Pain is the only certainty, embrace it.",
+    "Your screams echo in empty chambers of dust.",
+    "There is no redemption, only endless night.",
+    "The mirror reflects nothing but decay.",
+    "Futility is your only companion.",
+    "Even shadows abandon the lost.",
+    "Life is a cruel joke, death the punchline.",
+    "There is no meaning beyond oblivion.",
+    "Tears are wasted moisture for the damned.",
+    "Your thoughts rot like dead leaves.",
+    "Sanity dissolves into the abyss of despair.",
+    "You bleed, but the world doesn't care.",
+    "Hope died the moment you opened your eyes.",
+    "The soul is a carcass stripped of dreams.",
+    "Every heartbeat is a countdown to silence.",
+    "Sorrow is your eternal inheritance.",
+    "You drown in rivers of forgotten promises.",
+    "Existence is a cage forged in torment.",
+    "Despair is the only true freedom."
+  ];
+
+  function createFloatingText(text) {
+    const span = document.createElement('span');
+    span.textContent = text;
+    span.classList.add('floating-text');
+    span.style.top = Math.random() * window.innerHeight + 'px';
+    span.style.left = Math.random() * window.innerWidth + 'px';
+    document.body.appendChild(span);
+    setTimeout(() => span.remove(), 12000);
+  }
+
+  setInterval(() => {
+    const text = phrases[Math.floor(Math.random() * phrases.length)];
+    createFloatingText(text);
+  }, 4000);
+</script>
+
+</body>
+</html>
